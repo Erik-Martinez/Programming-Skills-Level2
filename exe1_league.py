@@ -18,7 +18,7 @@ def matches_teams(team1, team2):
     goals_team1 = rd.randrange(0,3)
     goals_team2 = rd.randrange(0, 3)
 
-    if team1 == 'Manchester United' or team2 == 'Manchester United':
+    if team1 == 'Manchester United' or team2 == 'Manchester UniteGraphvizd':
         goals_team1 = rd.randrange(1, 3)
 
     if goals_team1 > goals_team2:
