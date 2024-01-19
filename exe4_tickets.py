@@ -91,7 +91,6 @@ def login():
 
     print('Has superado el numero de intentos maximos.')
     exit()
-
 def membership(user):
     if client_data[user]['membership'] == True:
         os.system('cls')
@@ -108,11 +107,13 @@ def membership(user):
                 print('Entendido. Ser miembro da recompensas exclusivas como descuentos y la \n'
                       'posibilidad de comprar más asientos. Puedes hacerte miembro en el \n'
                       'estadio.')
+                input('Pulsa enter para continuar.')
                 return
-            elif ans == 'si' or ans == 's':
+            elif ans == 'no' or ans == 'n':
                 print('Entendido, ya hemos cambiado la información. Se te aplicaran los\n'
                       'descuentos y la posibilidad de comprar hasta 10 asientos.')
                 client_data[user]['membership'] = True
+                input('Pulsa enter para continuar.')
                 return
             else:
                 os.system('cls')
@@ -137,11 +138,12 @@ def select_sit(user, info_tickets, total_price):
 
                 if seat in dicc_seats[ans]:
                     if seat not in selled_seats:
-                        if client_data[user]['mebership'] == True:
+                        if client_data[user]['membership'] == True:
                             num_tickets = len(client_data[user]['seats'])
                             if num_tickets < 10:
                                 selled_seats.append(int(seat))
                                 client_data[user]['seats'].append(int(seat))
+                                selled_seats.append(int(seat))
                                 info_tickets.append(f'Número: {seat} {dicc_type_seat[ans]}')
                                 total_tickets += 1
                             else:
@@ -155,6 +157,7 @@ def select_sit(user, info_tickets, total_price):
                             if num_tickets < 3:
                                 selled_seats.append(int(seat))
                                 client_data[user]['seats'].append(int(seat))
+                                selled_seats.append(int(seat))
                                 info_tickets.append(f'Número: {seat} {dicc_type_seat[ans]}')
                                 total_tickets += 1
                             else:
@@ -215,9 +218,13 @@ def summarize_tickets(user, info_tickets, total_price):
         if ans == 'si' or ans == 's':
             os.system('cls')
             print('Pedido realizado. Disfruta de tus asientos!')
+            input('Pulsa enter para continuar.')
+            exit()
         elif ans == 'no' or ans == 'n':
             os.system('cls')
             print('Pedido cancelado. Esperamos verte proto!')
+            input('Pulsa enter para continuar.')
+            exit()
         else:
             os.system('cls')
             print('No entiendo tu respuesta.')
